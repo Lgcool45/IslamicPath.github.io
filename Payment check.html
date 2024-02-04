@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Processing</title>
+    <style>
+       
+       body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #payment-status {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #home-link {
+            color: #1DB954;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="payment-status">
+        Processing payment...
+    </div>
+
+    <script>
+        
+        const paymentResult = Math.random() < 0.5;
+
+
+        setTimeout(() => {
+            const paymentStatusElement = document.getElementById("payment-status");
+
+            if (paymentResult) {
+                paymentStatusElement.innerHTML = "Payment approved!";
+            } else {
+                paymentStatusElement.innerHTML = "Payment denied. Redirecting to home page...";
+
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 3000);
+            }
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IslamicPath Dashboard</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #040404;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b3b3b3;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        main {
+            padding: 20px;
+        }
+        
+        .user-profile,
+        .dashboard-widgets {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #121212;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .widget {
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            color: #1DB954;
+        }
+
+        footer {
+            background-color: #040404;
+            padding: 10px;
+            text-align: center;
+        }
+
+        p.footer-text {
+            font-size: 12px;
+            color: #b3b3b3;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>IslamicPath Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="user-profile">
+            <div class="container">
+                <h2>Welcome, [User's Name]!</h2>
+                <!-- Display user-specific information here -->
+                <p>Email: [User's Email]</p>
+                <p>Joined on: [Joining Date]</p>
+            </div>
+        </section>
+
+        <section class="dashboard-widgets">
+            <div class="container">
+                <h2>Your Dashboard</h2>
+                <div class="widget">
+                    <h3>Recent Recitations</h3>
+                    <!-- Display a list of the user's recently listened recitations -->
+                    <ul>
+                        <li>Recitation 1</li>
+                        <li>Recitation 2</li>
+                        <li>Recitation 3</li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Favorite Reciters</h3>
+                    <!-- Display the user's favorite reciters -->
+                    <ul>
+                        <li>Reciter A</li>
+                        <li>Reciter B</li>
+                        <li>Reciter C</li>
+                    </ul>
+                </div>
+
+                <!-- Add more widgets based on your application's features -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 IslamicPath. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

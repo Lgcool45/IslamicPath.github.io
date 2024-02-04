@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Premium - IslamicPath</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #040404;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #1DB954;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #b3b3b3;
+        }
+
+        input {
+            height: 40px;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #282828;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        button {
+            height: 40px;
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #25a34a;
+        }
+
+        button.upgrade-button {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #040404;
+            padding: 10px;
+            text-align: center;
+        }
+
+        p.footer-text {
+            font-size: 12px;
+            color: #b3b3b3;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Upgrade to Premium</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Payment Details</h2>
+            <p>Provide your payment details to upgrade to IslamicPath Premium.</p>
+
+            <form action="Payment check.html" method="post">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <label for="name">Cardholder Name:</label>
+                <input type="text" id="name" name="name" required>
+
+            
+                <button class="upgrade-button" onclick="redirectToPaymentCheck()">Upgrade to Premium</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">&copy; 2024 IslamicPath. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToPaymentCheck() {
+        
+            window.location.href = "Payment check.html";
+        }
+    </script>
+</body>
+
+</html>

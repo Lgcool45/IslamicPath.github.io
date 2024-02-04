@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IslamicPath</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #040404;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b3b3b3;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #1DB954;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .hero {
+            background-image: url("hero-background.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #1DB954;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #25a34a;
+        }
+
+        .featured-playlists {
+            background-color: #040404;
+            padding: 40px 0;
+        }
+
+        .featured-playlists h2 {
+            font-size: 24px;
+            color: #1DB954;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .playlist-card {
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .playlist-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .playlist-card h3 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .playlist-card p {
+            font-size: 16px;
+            color: #b3b3b3;
+        }
+
+        footer {
+            background-color: #040404;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>IslamicPath</h1>
+            <nav>
+                <ul>
+                    <li><a href="Reciters.html">Reciters</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Terms of service.html">Terms of Service</a></li>
+                    <li><a href="Islamic Premium.html">IslamicPath Premium</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Discover Islamic Recitations</h2>
+                <p>Listen to Quranic recitations from various talented reciters.</p>
+                <button onclick="window.location.href='Signup.html'" class="cta-button">Get Started</button>
+
+
+            </div>
+        </section>
+
+        <section class="featured-playlists">
+            <div class="container">
+                <h2>Featured Playlists</h2>
+                <div class="playlist-card">
+                    <img src="playlist1.jpg" alt="Playlist 1">
+                    <h3>Morning Reflections</h3>
+                    <p>Start your day with these soothing recitations.</p>
+                </div>
+                <div class="playlist-card">
+                    <img src="playlist2.jpg" alt="Playlist 2">
+                    <h3>Nightly Tranquility</h3>
+                    <p>Wind down with these calming recitations before sleep.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 IslamicPath. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/user/username') 
+                .then(response => response.json())
+                .then(data => {
+                    const userProfileInfo = document.getElementById('user-profile-info');
+                    userProfileInfo.innerHTML = `<p>Full Name: ${data.user.fullName}</p>
+                                                 <p>Username: ${data.user.userName}</p>
+                                                 <p>Views: ${data.user.views}</p>
+                                                 <p>Followers: ${data.user.followers}</p>`;
+                })
+                .catch(error => console.error('Error fetching user profile:', error));
+
+            // Fetch recitation details
+            fetch('/api/recitation/recitation_id') // Replace 'recitation_id' with the actual recitation ID
+                .then(response => response.json())
+                .then(data => {
+                    const recitationDetailsInfo = document.getElementById('recitation-details-info');
+                    recitationDetailsInfo.innerHTML = `<p>Title: ${data.recitation.title}</p>
+                                                       <p>Content: ${data.recitation.content}</p>
+                                                       <p>Views: ${data.recitation.views}</p>`;
+                })
+                .catch(error => console.error('Error fetching recitation details:', error));
+        });
+    </script>
+</body>
+
+</html>
+
+
