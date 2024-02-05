@@ -1,72 +1,54 @@
- let switchCtn = document.querySelector("#switch-cnt");
-        let switchC1 = document.querySelector("#switch-c1");
-        let switchC2 = document.querySelector("#switch-c2");
-        let switchCircle = document.querySelectorAll(".switch__circle");
-        let switchBtn = document.querySelectorAll(".switch-btn");
-        let aContainer = document.querySelector("#a-container");
-        let bContainer = document.querySelector("#b-container");
-        let allButtons = document.querySelectorAll(".submit");
-        
-        let getButtons = (e) => e.preventDefault();
-        
-        let changeForm = (e) => {
-        
-            switchCtn.classList.add("is-gx");
-            setTimeout(function(){
-                switchCtn.classList.remove("is-gx");
-            }, 1500);
-        
-            switchCtn.classList.toggle("is-txr");
-            switchCircle[0].classList.toggle("is-txr");
-            switchCircle[1].classList.toggle("is-txr");
-        
-            switchC1.classList.toggle("is-hidden");
-            switchC2.classList.toggle("is-hidden");
-            aContainer.classList.toggle("is-txl");
-            bContainer.classList.toggle("is-txl");
-            bContainer.classList.toggle("is-z200");
-        };
-        
-        let mainF = (e) => {
-            for (var i = 0; i < allButtons.length; i++)
-                allButtons[i].addEventListener("click", getButtons );
-            for (var i = 0; i < switchBtn.length; i++)
-                switchBtn[i].addEventListener("click", changeForm);
-        };
-        
-        window.addEventListener("load", mainF);
-        
-        function redirectAndSave() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            window.location.href = "dashboard.html";
-        }
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
 
-        function signIn() {
-            const enteredUsername = document.getElementById("username").value;
-            const enteredPassword = document.getElementById("password").value;
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add(`form__message--${type}`);
+}
 
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: enteredUsername,
-                    password: enteredPassword
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = "dashboard.html";
-                } else {
-                    alert("Invalid username/password combination");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("An error occurred. Please try again.");
-            });
-        }
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#login");
+    const createAccountForm = document.querySelector("#createAccount");
+
+    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        createAccountForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.remove("form--hidden");
+        createAccountForm.classList.add("form--hidden");
+    });
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        // Perform your AJAX/Fetch login
+
+        setFormMessage(loginForm, "error", "Invalid username/password combination");
+    });
+
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
+                setInputError(inputElement, "Username must be at least 10 characters in length");
+            }
+        });
+
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
+    });
+});
