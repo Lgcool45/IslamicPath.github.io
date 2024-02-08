@@ -1,79 +1,36 @@
 <!DOCTYPE html>
-<div class="form">
-      
-      <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Sign Up</a></li>
-        <li class="tab"><a href="#login">Log In</a></li>
-      </ul>
-      
-      <div class="tab-content">
-        <div id="signup">   
-          <h1>Sign Up for Free</h1>
-          
-          <form action="/" method="post">
-          
-          <div class="top-row">
-            <div class="field-wrap">
-              <label>
-                First Name<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" />
-            </div>
-        
-            <div class="field-wrap">
-              <label>
-                Last Name<span class="req">*</span>
-              </label>
-              <input type="text"required autocomplete="off"/>
-            </div>
-          </div>
+<div class="main"></div>
+  
+<form onsubmit="refresh(); return false">
+ 
+ <div class="logo">
+</div>
+  
+  <div class="sign-box">
+    <p>sign in</p>
+    <p>sign up</p>
+  </div>
+  
+    <span id="msg"></span>
+  
+  <input type="name" placeholder="Username" class="inp-Box name"/>
+  
+  <br>
+  
+ <input type="password" placeholder="Password" class="inp-Box psd"/>
+  
+  <br>
+  
+  <div class="check">
+    <input type="checkbox" id="check">
+    <label for="check" id="checkMsg">stay signed in</label>
+  </div>
+  
+  <input type="submit" value="sign in" class="inp-Box submit">
+  
+  <p class="forgot-Psd">forgot password?</p>
+</form>
 
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Set A Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <button type="submit" class="button button-block"/>Get Started</button>
-          
-          </form>
 
-        </div>
-        
-        <div id="login">   
-          <h1>Welcome Back!</h1>
-          
-          <form action="/" method="post">
-          
-            <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
-          
-          <button class="button button-block"/>Log In</button>
-          
-          </form>
-
-        </div>
-        
-      </div><
-</div> 
+<p class="note">Please log in to listen to your favorite song...</p>
+  
