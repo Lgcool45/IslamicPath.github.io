@@ -7,21 +7,22 @@
     <title>IslamicPath Dashboard</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
-        
+
         header {
             background-color: #040404;
             padding: 20px;
             text-align: center;
+            color: white;
         }
 
         h1 {
             font-size: 24px;
+            margin: 0;
         }
 
         nav ul {
@@ -46,36 +47,57 @@
         main {
             padding: 20px;
         }
-        
-        .user-profile,
-        .dashboard-widgets {
-            max-width: 800px;
-            margin: 0 auto;
-            margin-bottom: 20px;
+
+        .user-profile {
+            background-color: #fff;
             padding: 20px;
-            background-color: #121212;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-widgets {
+            background-color: #fff;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .widget {
             margin-bottom: 20px;
         }
 
-        h2, h3 {
-            color: #1DB954;
-        }
-
         footer {
-            background-color: #040404;
-            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
             text-align: center;
+            padding: 20px 0;
         }
 
-        p.footer-text {
-            font-size: 12px;
-            color: #b3b3b3;
-            margin: 0;
+        .audio-player {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .audio-player audio {
+            width: 200px;
+        }
+
+        .control-button {
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            background-color: #666;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .control-button:hover {
+            background-color: #444;
         }
     </style>
 </head>
@@ -98,9 +120,8 @@
     <main>
         <section class="user-profile">
             <div class="container">
-                <h2>Welcome, [User's Name]!</h2>
+                <h2>Welcome, <span id="username">[User's Name]</span>!</h2>
                 <!-- Display user-specific information here -->
-                <p>Email: [User's Email]</p>
                 <p>Joined on: [Joining Date]</p>
             </div>
         </section>
@@ -111,16 +132,14 @@
                 <div class="widget">
                     <h3>Recent Recitations</h3>
                     <!-- Display a list of the user's recently listened recitations -->
-                    <ul>
-                        <li>Recitation 1</li>
-                        <li>Recitation 2</li>
-                        <li>Recitation 3</li>
+                    <ul id="recent-recitations">
+                        <!-- Recitations will be dynamically added here using JavaScript -->
                     </ul>
                 </div>
 
                 <div class="widget">
                     <h3>Favorite Reciters</h3>
-                    <!-- Display the user's favorite reciters -->
+
                     <ul>
                         <li>Reciter A</li>
                         <li>Reciter B</li>
@@ -128,7 +147,18 @@
                     </ul>
                 </div>
 
-                <!-- Add more widgets based on your application's features -->
+                <div class="widget">
+                    <h3>Listen to Recitation</h3>
+                    <div class="audio-player">
+                        <audio id="audio" controls>
+                            <source src="098.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="control-button" id="play-pause">&#9658;</button>
+                        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+                    </div>
+                </div>
+                
 
             </div>
         </section>
@@ -139,6 +169,48 @@
             <p>&copy; 2024 IslamicPath. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById('audio');
+            const playPauseButton = document.getElementById('play-pause');
+            const volumeSlider = document.getElementById('volume');
+
+            playPauseButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseButton.innerHTML = '&#10074;&#10074;';
+                } else {
+                    audio.pause();
+                    playPauseButton.innerHTML = '&#9658;'; 
+                }
+            });
+
+            volumeSlider.addEventListener('input', function() {
+                audio.volume = volumeSlider.value;
+            });
+
+            const recentRecitations = [
+                "Surah Al-Fatiha",
+                "Surah Al-Baqarah",
+                "Surah Al-Imran",
+                "Surah An-Nisa",
+                "Surah Al-Maidah"
+            ];
+
+            const recentRecitationsList = document.getElementById('recent-recitations');
+
+            // Clear any existing content
+            recentRecitationsList.innerHTML = '';
+
+            recentRecitations.forEach(function(recitation) {
+                const listItem = document.createElement('li');
+                listItem.textContent = recitation;
+                recentRecitationsList.appendChild(listItem);
+            });
+        });
+    </script>
 </body>
 
 </html>
+
