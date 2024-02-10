@@ -1,155 +1,154 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Pathway Extreme', sans-serif;
-  transition: .3s;
-  user-select: none;
-}
-
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0;
-  background-color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pathway Extreme', sans-serif;
+    transition: .3s;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    background-color: #000;
 }
 
 #msg {
-  color: #1db954;
-  text-align: center;
-  display: block;
-  margin: 10px 0;
-  margin-top: -20px;
+    color: #1db954;
+    text-align: center;
+    display: block;
+    margin: 10px 0;
+    margin-top: -20px;
 }
 
 .note {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #1db954;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #1db954;
 }
 
 .main {
-  width: 100%;
-  height: 100vh;
-  background-color: #000;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .main-logo {
-  width: 200px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 form {
-  width: 350px;
-  background: #000;
-  color: #ffffff;
-  text-align: left;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 55px #000;
+    width: 350px;
+    background: #000;
+    color: #ffffff;
+    text-align: left;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 55px #000;
 }
 
 .logo {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .logo>img {
-  width: 100px;
+    width: 100px;
 }
 
 .sign-box {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  text-transform: uppercase;
-  margin: 30px 0;
-  font-size: .95em;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    text-transform: uppercase;
+    margin: 30px 0;
+    font-size: .95em;
 }
 
 .sign-box>p {
-  padding: 5px 0;
-  cursor: pointer;
-  transition: .1s;
+    padding: 5px 0;
+    cursor: pointer;
+    transition: .1s;
 }
 
 .sign-box>p:nth-child(1) {
-  border-bottom: 2.3px solid #1db954;
+    border-bottom: 2.3px solid #1db954;
 }
 
 .sign-box>p:hover {
-  border-bottom: 2.3px solid #1db954;
+    border-bottom: 2.3px solid #1db954;
 }
 
 .check {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-  font-size: .95em;
-  padding: 0px 20px;
-  margin: 5px 0;
-  accent-color: #1db954;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    font-size: .95em;
+    padding: 0px 20px;
+    margin: 5px 0;
+    accent-color: #1db954;
 }
 
 .inp-Box {
-  color: #fff;
-  background-color: #333;
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 1.1em;
-  padding: 15px 20px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  box-shadow: 0 0 15px #000;
-  transition: .1s;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.1em;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px #000;
+    transition: .1s;
 }
 
 .inp-Box:focus {
-  outline: 2px solid #1db954;
-  background: #333;
-  color: #fff;
-  caret-color: #1db954;
+    outline: 2px solid #1db954;
+    background: #333;
+    color: #fff;
+    caret-color: #1db954;
 }
 
 .submit {
-  margin-top: 15px;
-  text-transform: uppercase;
-  font-size: 1em;
-  background: #1db954;
-  color: #ffffff;
-  cursor: pointer;
-  transition: .3s;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 1em;
+    background: #1db954;
+    color: #ffffff;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .submit:active {
-  background: #000;
-  box-shadow: 0 0 5px #000;
+    background: #000;
+    box-shadow: 0 0 5px #000;
 }
 
 .submit:focus {
-  outline: none;
-  background: #000;
-  color: #fff;
-  caret-color: none;
+    outline: none;
+    background: #000;
+    color: #fff;
+    caret-color: none;
 }
 
 .forgot-Psd {
-  text-align: center;
-  text-transform: capitalize;
-  color: #444;
-  margin: 15px 0;
-  font-size: .95em;
-  cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    color: #444;
+    margin: 15px 0;
+    font-size: .95em;
+    cursor: pointer;
 }
 
 .forgot-Psd:hover {
-  color: #1db954;
+    color: #1db954;
 }
-
