@@ -45,7 +45,7 @@ const check = document.querySelector('#check');
                 alert(`Welcome ${nameInput.value} - ( please confirm ${nameInput.value} & ${psdInput.value}))`);
                 check.checked = false;
                 load();
-                window.location.href = "dashboard.html";
+                window.location.href = "dashborad.html";
             }
             nameInput.value = "";
             psdInput.value = "";
