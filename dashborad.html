@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
+        /* Reset styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Global styles */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #181818;
             color: #fff;
+            margin-bottom: 60px; /* Adjust to accommodate footer */
         }
 
         .container {
@@ -33,6 +36,7 @@
             text-decoration: underline;
         }
 
+        /* Header styles */
         header {
             background-color: #000;
             padding: 20px 0;
@@ -43,6 +47,7 @@
             font-size: 24px;
         }
 
+        /* Sidebar styles */
         .sidebar {
             background-color: #040404;
             width: 250px;
@@ -100,6 +105,7 @@
             margin-bottom: 10px;
         }
 
+        /* Footer styles */
         footer {
             background-color: #000;
             color: #fff;
@@ -109,54 +115,64 @@
             left: 0;
             bottom: 0;
             width: 100%;
+            z-index: 999; 
         }
 
-        .audio-player {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
+        /* Audio player styles */
+        /* Audio player styles */
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
-        .control-button {
-            cursor: pointer;
-            font-size: 20px;
-            color: #fff;
-            background-color: #1DB954;
-            padding: 5px 10px;
-            border-radius: 50%;
-        }
+.audio-player audio {
+    width: auto;
+    flex-grow: 1;
+}
 
-        .control-button:hover {
-            background-color: #0f7d3b;
-        }
+.control-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #1DB954;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+    transition: color 0.3s ease-in-out;
+}
 
-        input[type="range"] {
-            width: 150px;
-            height: 5px;
-            -webkit-appearance: none;
-            background-color: #282828;
-            border-radius: 5px;
-            outline: none;
-            margin: 0;
-        }
+.control-button:hover {
+    color: #0f7d3b;
+}
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 10px;
-            height: 10px;
-            background-color: #1DB954;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+input[type="range"] {
+    width: 150px;
+    height: 5px;
+    -webkit-appearance: none;
+    background-color: #282828;
+    border-radius: 5px;
+    outline: none;
+    margin: 0;
+}
 
-        input[type="range"]::-moz-range-thumb {
-            width: 10px;
-            height: 10px;
-            background-color: #1DB954;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #1DB954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background-color: #1DB954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
     </style>
 </head>
 
@@ -181,39 +197,48 @@
 
     <div class="main-content">
         <div class="container">
-            <div class="widget">
-                <h3>Recent Recitations</h3>
-                <ul>
-                    <li>Recitation 1</li>
-                    <li>Recitation 2</li>
-                    <li>Recitation 3</li>
-                </ul>
-            </div>
+            <section class="user-profile widget">
+                <h3>Welcome, <span id="username">[User's Name]</span>!</h3>
+                <p>Joined on: [Joining Date]</p>
+            </section>
 
-            <div class="widget">
-                <h3>Favorite Reciters</h3>
-                <ul>
-                    <li>Reciter A</li>
-                    <li>Reciter B</li>
-                    <li>Reciter C</li>
-                </ul>
-            </div>
+            <section class="dashboard-widgets">
+                <div class="container">
+                    <h2>Your Dashboard</h2>
+                    <div class="widget">
+                        <h3>Recent Recitations</h3>
+                        <ul id="recent-recitations">
+                            <!-- Recitations will be dynamically added here using JavaScript -->
+                        </ul>
+                    </div>
 
-            <div class="widget">
-                <h3>Listen to Recitation</h3>
-                <div class="audio-player">
-                    <audio id="audio" controls>
-                        <source src="098.mp3" type="audio/mpeg">
-                    </audio>
-                    <button class="control-button" id="play-pause">&#9658;</button>
-                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+                    <div class="widget">
+                        <h3>Favorite Reciters</h3>
+                        <ul>
+                            <li>Reciter A</li>
+                            <li>Reciter B</li>
+                            <li>Reciter C</li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3>Listen to Recitation</h3>
+                        <div class="audio-player">
+                            <audio id="audio" controls>
+                                <source src="098.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <button class="control-button" id="play-pause">&#9658;</button>
+                            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+                        </div>
+                    </div>
+                    
+                    <div class="widget">
+                        <h3>Additional Widget</h3>
+                        <p>This is an additional widget.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="widget">
-                <h3>Additional Widget</h3>
-                <p>This is an additional widget.</p>
-            </div>
+            </section>
         </div>
     </div>
 
@@ -222,6 +247,47 @@
             <p>&copy; 2024 IslamicPath. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById('audio');
+            const playPauseButton = document.getElementById('play-pause');
+            const volumeSlider = document.getElementById('volume');
+
+            playPauseButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseButton.innerHTML = '&#10074;&#10074;';
+                } else {
+                    audio.pause();
+                    playPauseButton.innerHTML = '&#9658;'; 
+                }
+            });
+
+            volumeSlider.addEventListener('input', function() {
+                audio.volume = volumeSlider.value;
+            });
+
+            const recentRecitations = [
+                "Surah Al-Fatiha",
+                "Surah Al-Baqarah",
+                "Surah Al-Imran",
+                "Surah An-Nisa",
+                "Surah Al-Maidah"
+            ];
+
+            const recentRecitationsList = document.getElementById('recent-recitations');
+
+            // Clear any existing content
+            recentRecitationsList.innerHTML = '';
+
+            recentRecitations.forEach(function(recitation) {
+                const listItem = document.createElement('li');
+                listItem.textContent = recitation;
+                recentRecitationsList.appendChild(listItem);
+            });
+        });
+    </script>
 </body>
 
 </html>
