@@ -6,173 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
-        /* Reset styles */
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
 
-        /* Global styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #181818;
-            color: #fff;
-            margin-bottom: 60px; /* Adjust to accommodate footer */
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        a {
-            color: #1DB954;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Header styles */
         header {
-            background-color: #000;
-            padding: 20px 0;
+            background-color: #040404;
+            padding: 20px;
             text-align: center;
+            color: white;
         }
 
         h1 {
             font-size: 24px;
-        }
-
-        /* Sidebar styles */
-        .sidebar {
-            background-color: #040404;
-            width: 250px;
-            padding: 20px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
             margin: 0;
         }
 
-        .sidebar li {
-            margin-bottom: 10px;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
-        .sidebar li a {
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
             color: #b3b3b3;
             font-size: 16px;
-            display: block;
-            padding: 5px 0;
             transition: color 0.3s ease-in-out;
         }
 
-        .sidebar li a:hover {
-            color: #fff;
+        main {
+            padding: 20px;
         }
 
-        /* Main content styles */
-        .main-content {
-            margin-left: 250px;
+        .user-profile {
+            background-color: #fff;
             padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-widgets {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .widget {
-            background-color: #282828;
-            padding: 20px;
             margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .widget h3 {
-            color: #1DB954;
-            margin-bottom: 10px;
-        }
-
-        /* Footer styles */
         footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
-            z-index: 999; 
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
         }
 
-        /* Audio player styles */
-        /* Audio player styles */
-.audio-player {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        .audio-player {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-.audio-player audio {
-    width: auto;
-    flex-grow: 1;
-}
+        .audio-player audio {
+            width: auto;
+            flex-grow: 1;
+        }
 
-.control-button {
-    cursor: pointer;
-    font-size: 24px;
-    color: #1DB954;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    outline: none;
-    transition: color 0.3s ease-in-out;
-}
+        .control-button {
+            cursor: pointer;
+            font-size: 24px;
+            color: #1DB954;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            outline: none;
+            transition: color 0.3s ease-in-out;
+        }
 
-.control-button:hover {
-    color: #0f7d3b;
-}
+        .control-button:hover {
+            color: #0f7d3b;
+        }
 
-input[type="range"] {
-    width: 150px;
-    height: 5px;
-    -webkit-appearance: none;
-    background-color: #282828;
-    border-radius: 5px;
-    outline: none;
-    margin: 0;
-}
+        .control-button:focus {
+            outline: none;
+        }
 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
-    background-color: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
+        .play-pause-button::after {
+            content: "\25B6"; /* play icon */
+        }
 
-input[type="range"]::-moz-range-thumb {
-    width: 10px;
-    height: 10px;
-    background-color: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
+        .play-pause-button.paused::after {
+            content: "\275A\275A"; /* pause icon */
+        }
     </style>
 </head>
 
@@ -180,67 +122,61 @@ input[type="range"]::-moz-range-thumb {
     <header>
         <div class="container">
             <h1>IslamicPath Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="Index.html">Logout</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="sidebar">
-        <div class="container">
-            <h2>Navigation</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <div class="container">
-            <section class="user-profile widget">
-                <h3>Welcome, <span id="username">[User's Name]</span>!</h3>
+    <main>
+        <section class="user-profile">
+            <div class="container">
+                <h2>Welcome, <span id="username">[User's Name]</span>!</h2>
+                <!-- Display user-specific information here -->
                 <p>Joined on: [Joining Date]</p>
-            </section>
+            </div>
+        </section>
 
-            <section class="dashboard-widgets">
-                <div class="container">
-                    <h2>Your Dashboard</h2>
-                    <div class="widget">
-                        <h3>Recent Recitations</h3>
-                        <ul id="recent-recitations">
-                            <!-- Recitations will be dynamically added here using JavaScript -->
-                        </ul>
-                    </div>
+        <section class="dashboard-widgets">
+            <div class="container">
+                <h2>Your Dashboard</h2>
+                <div class="widget">
+                    <h3>Recent Recitations</h3>
+                    <ul id="recent-recitations">
+                        <!-- Recitations will be dynamically added here using JavaScript -->
+                    </ul>
+                </div>
 
-                    <div class="widget">
-                        <h3>Favorite Reciters</h3>
-                        <ul>
-                            <li>Reciter A</li>
-                            <li>Reciter B</li>
-                            <li>Reciter C</li>
-                        </ul>
-                    </div>
+                <div class="widget">
+                    <h3>Favorite Reciters</h3>
+                    <ul>
+                        <li>Reciter A</li>
+                        <li>Reciter B</li>
+                        <li>Reciter C</li>
+                    </ul>
+                </div>
 
-                    <div class="widget">
-                        <h3>Listen to Recitation</h3>
-                        <div class="audio-player">
-                            <audio id="audio" controls>
-                                <source src="098.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                            <button class="control-button" id="play-pause">&#9658;</button>
-                            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
-                        </div>
-                    </div>
-                    
-                    <div class="widget">
-                        <h3>Additional Widget</h3>
-                        <p>This is an additional widget.</p>
+                <div class="widget">
+                    <h3>Listen to Recitation</h3>
+                    <div class="audio-player">
+                        <audio id="audio" src="098.mp3"></audio>
+                        <button class="control-button play-pause-button" id="play-pause"></button>
+                        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
+
+                <div class="widget">
+                    <h3>Another Widget</h3>
+                    <p>This is another widget content.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -254,18 +190,28 @@ input[type="range"]::-moz-range-thumb {
             const playPauseButton = document.getElementById('play-pause');
             const volumeSlider = document.getElementById('volume');
 
-            playPauseButton.addEventListener('click', function() {
+            function togglePlayPause() {
                 if (audio.paused) {
                     audio.play();
-                    playPauseButton.innerHTML = '&#10074;&#10074;';
+                    playPauseButton.classList.add('paused');
                 } else {
                     audio.pause();
-                    playPauseButton.innerHTML = '&#9658;'; 
+                    playPauseButton.classList.remove('paused');
                 }
-            });
+            }
+
+            playPauseButton.addEventListener('click', togglePlayPause);
 
             volumeSlider.addEventListener('input', function() {
                 audio.volume = volumeSlider.value;
+            });
+
+            audio.addEventListener('play', function() {
+                playPauseButton.classList.add('paused');
+            });
+
+            audio.addEventListener('pause', function() {
+                playPauseButton.classList.remove('paused');
             });
 
             const recentRecitations = [
@@ -278,7 +224,6 @@ input[type="range"]::-moz-range-thumb {
 
             const recentRecitationsList = document.getElementById('recent-recitations');
 
-            // Clear any existing content
             recentRecitationsList.innerHTML = '';
 
             recentRecitations.forEach(function(recitation) {
@@ -291,3 +236,4 @@ input[type="range"]::-moz-range-thumb {
 </body>
 
 </html>
+
