@@ -185,7 +185,29 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to extract query parameter from URL
+            function getQueryVariable(variable) {
+                const query = window.location.search.substring(1);
+                const vars = query.split("&");
+                for (let i = 0; i < vars.length; i++) {
+                    const pair = vars[i].split("=");
+                    if (pair[0] === variable) {
+                        return decodeURIComponent(pair[1]);
+                    }
+                }
+                return null;
+            }
+
+            // Get the username from the query parameter
+            const username = getQueryVariable('username');
+
+            // Display the username on the page
+            const usernameElement = document.getElementById('username');
+            usernameElement.textContent = username;
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById('audio');
             const playPauseButton = document.getElementById('play-pause');
             const volumeSlider = document.getElementById('volume');
@@ -202,15 +224,15 @@
 
             playPauseButton.addEventListener('click', togglePlayPause);
 
-            volumeSlider.addEventListener('input', function() {
+            volumeSlider.addEventListener('input', function () {
                 audio.volume = volumeSlider.value;
             });
 
-            audio.addEventListener('play', function() {
+            audio.addEventListener('play', function () {
                 playPauseButton.classList.add('paused');
             });
 
-            audio.addEventListener('pause', function() {
+            audio.addEventListener('pause', function () {
                 playPauseButton.classList.remove('paused');
             });
 
@@ -226,7 +248,7 @@
 
             recentRecitationsList.innerHTML = '';
 
-            recentRecitations.forEach(function(recitation) {
+            recentRecitations.forEach(function (recitation) {
                 const listItem = document.createElement('li');
                 listItem.textContent = recitation;
                 recentRecitationsList.appendChild(listItem);
@@ -236,4 +258,3 @@
 </body>
 
 </html>
-
