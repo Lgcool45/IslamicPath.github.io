@@ -6,114 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
-        body {
+/* Reset styles */
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
         }
 
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            margin-bottom: 60px; /* Adjust to accommodate footer */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #1DB954;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header styles */
         header {
-            background-color: #040404;
-            padding: 20px;
+            background-color: #000;
+            padding: 20px 0;
             text-align: center;
-            color: white;
         }
 
         h1 {
             font-size: 24px;
-            margin: 0;
         }
 
-        nav ul {
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #040404;
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
-            justify-content: center;
         }
 
-        nav li {
-            margin-right: 20px;
+        .sidebar li {
+            margin-bottom: 10px;
         }
 
-        nav a {
-            text-decoration: none;
+        .sidebar li a {
             color: #b3b3b3;
             font-size: 16px;
+            display: block;
+            padding: 5px 0;
             transition: color 0.3s ease-in-out;
         }
 
-        main {
-            padding: 20px;
+        .sidebar li a:hover {
+            color: #fff;
         }
 
-        .user-profile {
-            background-color: #fff;
+        /* Main content styles */
+        .main-content {
+            margin-left: 250px;
             padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .dashboard-widgets {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .widget {
+            background-color: #282828;
+            padding: 20px;
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .widget h3 {
+            color: #1DB954;
+            margin-bottom: 10px;
+        }
+
+        /* Footer styles */
         footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
+            z-index: 999; /* Ensure footer is on top */
         }
 
+        /* Audio player styles */
         .audio-player {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .audio-player audio {
-            width: auto;
-            flex-grow: 1;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .control-button {
             cursor: pointer;
-            font-size: 24px;
-            color: #1DB954;
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            outline: none;
-            transition: color 0.3s ease-in-out;
+            font-size: 20px;
+            color: #fff;
+            background-color: #1DB954;
+            padding: 5px 10px;
+            border-radius: 50%;
         }
 
         .control-button:hover {
-            color: #0f7d3b;
+            background-color: #0f7d3b;
         }
 
-        .control-button:focus {
+        input[type="range"] {
+            width: 150px;
+            height: 5px;
+            -webkit-appearance: none;
+            background-color: #282828;
+            border-radius: 5px;
             outline: none;
+            margin: 0;
         }
 
-        .play-pause-button::after {
-            content: "\25B6"; /* play icon */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            background-color: #1DB954;
+            border-radius: 50%;
+            cursor: pointer;
         }
 
-        .play-pause-button.paused::after {
-            content: "\275A\275A"; /* pause icon */
+        input[type="range"]::-moz-range-thumb {
+            width: 10px;
+            height: 10px;
+            background-color: #1DB954;
+            border-radius: 50%;
+            cursor: pointer;
         }
     </style>
 </head>
