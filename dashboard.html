@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #181818;
-            color: #fff;
-            margin-bottom: 60px;
+            background-color: #f0f0f0;
         }
 
         .container {
@@ -25,75 +18,74 @@
             padding: 0 20px;
         }
 
-        a {
-            color: #1DB954;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
         header {
-            background-color: #000;
+            background-color: #333;
+            color: #fff;
             padding: 20px 0;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 999;
         }
 
-        h1 {
-            font-size: 24px;
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
             display: inline;
-            margin-right: 20px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            padding: 10px 20px;
         }
 
         .main-content {
-            margin-top: 80px;
-            padding: 20px;
+            padding: 20px 0;
+        }
+
+        .dashboard-widgets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
         }
 
         .widget {
-            background-color: #282828;
+            background-color: #fff;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .widget h3 {
-            color: #1DB954;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
 
-        footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 999;
+        .audio-player {
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-player audio {
+            flex: 1;
+        }
+
+        .audio-player button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            margin-left: 10px;
+            color: #333;
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="container">
@@ -131,10 +123,13 @@
 
                 <div class="widget">
                     <h3>Listen to Recitation</h3>
-                    <audio controls>
-                        <source src="mishary-rashid-alafasy-098-muslimcentral.com.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <div class="audio-player">
+                        <audio controls>
+                            <source src="mishary-rashid-alafasy-098-muslimcentral.com.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button id="play-pause">&#9658;</button>
+                    </div>
                 </div>
 
                 <div class="widget">
@@ -149,79 +144,47 @@
         <div class="container">
             <p>&copy; 2024 IslamicPath. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to extract query parameter from URL
-            function getQueryVariable(variable) {
-                const query = window.location.search.substring(1);
-                const vars = query.split("&");
-                for (let i = 0; i < vars.length; i++) {
-                    const pair = vars[i].split("=");
-                    if (pair[0] === variable) {
-                        return decodeURIComponent(pair[1]);
-                    }
-                }
-                return null;
+        // JavaScript code for controlling audio playback
+        const audio = document.querySelector('audio');
+        const playPauseBtn = document.getElementById('play-pause');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = '&#10074;&#10074;'; // Pause icon
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = '&#9658;'; // Play icon
             }
-
-            // Get the username from the query parameter
-            const username = getQueryVariable('username');
-
-            // Display the username on the page
-            const usernameElement = document.getElementById('username');
-            usernameElement.textContent = username;
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const audio = document.getElementById('audio');
-            const playPauseButton = document.getElementById('play-pause');
-            const volumeSlider = document.getElementById('volume');
+        // Sample recent recitations data
+        const recentRecitations = [
+            { title: 'Surah Al-Fatiha', reciter: 'Reciter X' },
+            { title: 'Surah Al-Baqarah', reciter: 'Reciter Y' },
+            { title: 'Surah Al-Imran', reciter: 'Reciter Z' }
+        ];
 
-            function togglePlayPause() {
-                if (audio.paused) {
-                    audio.play();
-                    playPauseButton.textContent = "⏸";
-                } else {
-                    audio.pause();
-                    playPauseButton.textContent = "▶️";
-                }
-            }
-
-            playPauseButton.addEventListener('click', togglePlayPause);
-
-            volumeSlider.addEventListener('input', function () {
-                audio.volume = volumeSlider.value;
-            });
-
-            audio.addEventListener('play', function () {
-                playPauseButton.textContent = "⏸";
-            });
-
-            audio.addEventListener('pause', function () {
-                playPauseButton.textContent = "▶️";
-            });
-
-            const recentRecitations = [
-                "Surah Al-Fatiha",
-                "Surah Al-Baqarah",
-                "Surah Al-Imran",
-                "Surah An-Nisa",
-                "Surah Al-Maidah"
-            ];
-
+        // Function to display recent recitations
+        function displayRecentRecitations() {
             const recentRecitationsList = document.getElementById('recent-recitations');
 
+            // Clear existing list items
             recentRecitationsList.innerHTML = '';
 
-            recentRecitations.forEach(function (recitation) {
-                const listItem = document.createElement('li');
-                listItem.textContent = recitation;
-                recentRecitationsList.appendChild(listItem);
+            // Add recent recitations to the list
+            recentRecitations.forEach(recitation => {
+                const li = document.createElement('li');
+                li.textContent = `${recitation.title} - ${recitation.reciter}`;
+                recentRecitationsList.appendChild(li);
             });
-        });
+        }
+
+        // Call the function to display recent recitations
+        displayRecentRecitations();
     </script>
 </body>
-
 </html>
