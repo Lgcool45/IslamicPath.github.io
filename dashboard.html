@@ -138,6 +138,7 @@
     <header>
         <div class="container">
             <h1>IslamicPath Dashboard</h1>
+            <p>Welcome, <span id="username"></span>!</p>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -219,41 +220,43 @@
         }
 
         function playPreviousTrack() {
-            // Implement logic to play previous track
         }
 
         function playNextTrack() {
-            // Implement logic to play next track
         }
 
         function setVolume() {
             audio.volume = volumeSlider.value / 100;
         }
 
-        // Sample recent recitations data
         const recentRecitations = [
             { title: 'Surah Al-Fatiha', reciter: 'Reciter X' },
             { title: 'Surah Al-Baqarah', reciter: 'Reciter Y' },
             { title: 'Surah Al-Imran', reciter: 'Reciter Z' }
         ];
 
-        // Function to display recent recitations
         function displayRecentRecitations() {
             const recentRecitationsList = document.getElementById('recent-recitations');
 
-            // Clear existing list items
             recentRecitationsList.innerHTML = '';
 
-            // Add recent recitations to the list
             recentRecitations.forEach(recitation => {
                 const li = document.createElement('li');
                 li.textContent = `${recitation.title} - ${recitation.reciter}`;
                 recentRecitationsList.appendChild(li);
             });
         }
-
-        // Call the function to display recent recitations
+        
         displayRecentRecitations();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        const usernameElement = document.getElementById('username');
+        if (usernameElement) {
+            usernameElement.textContent = username;
+        }
+
     </script>
 </body>
 </html>
