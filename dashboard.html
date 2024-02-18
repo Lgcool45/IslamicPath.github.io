@@ -5,47 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
         }
 
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Container styles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Header styles */
         header {
             background-color: #333;
             color: #fff;
             padding: 20px 0;
+            text-align: center;
         }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        header h1 {
+            margin: 0;
+            font-size: 24px;
         }
 
+        /* Navigation styles */
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            text-align: center;
         }
 
         nav ul li {
             display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            font-size: 16px;
         }
 
+        /* Main content styles */
         .main-content {
             padding: 20px 0;
         }
@@ -60,16 +77,30 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .widget h3 {
             margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .widget ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .widget ul li {
+            padding: 5px 0;
         }
 
         .audio-player {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .audio-player audio {
@@ -81,8 +112,25 @@
             border: none;
             cursor: pointer;
             font-size: 24px;
-            margin-left: 10px;
             color: #333;
+            transition: transform 0.2s;
+        }
+
+        .audio-player button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -104,7 +152,6 @@
     <div class="main-content">
         <div class="container">
             <section class="dashboard-widgets">
-                <h2>Your Dashboard</h2>
                 <div class="widget">
                     <h3>Recent Recitations</h3>
                     <ul id="recent-recitations">
@@ -124,11 +171,14 @@
                 <div class="widget">
                     <h3>Listen to Recitation</h3>
                     <div class="audio-player">
-                        <audio controls>
-                            <source src="1.mp3" type="audio/mp3">
+                        <button id="prev-track">⏮️</button>
+                        <button id="play-pause">▶️</button>
+                        <button id="next-track">⏭️</button>
+                        <audio controls id="audio-player">
+                            <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/098.mp3" type="audio/mp3">
                             Your browser does not support the audio element.
                         </audio>
-                        <button id="play-pause">&#9658;</button>
+                        <input type="range" id="volume-slider" min="0" max="100" step="1" value="100">
                     </div>
                 </div>
 
@@ -147,19 +197,38 @@
     </footer> 
 
     <script>
-        // JavaScript code for controlling audio playback
-        const audio = document.querySelector('audio');
+        const audio = document.getElementById('audio-player');
         const playPauseBtn = document.getElementById('play-pause');
+        const prevTrackBtn = document.getElementById('prev-track');
+        const nextTrackBtn = document.getElementById('next-track');
+        const volumeSlider = document.getElementById('volume-slider');
 
-        playPauseBtn.addEventListener('click', () => {
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        prevTrackBtn.addEventListener('click', playPreviousTrack);
+        nextTrackBtn.addEventListener('click', playNextTrack);
+        volumeSlider.addEventListener('input', setVolume);
+
+        function togglePlayPause() {
             if (audio.paused) {
                 audio.play();
-                playPauseBtn.innerHTML = '&#10074;&#10074;'; // Pause icon
+                playPauseBtn.textContent = '⏸️';
             } else {
                 audio.pause();
-                playPauseBtn.innerHTML = '&#9658;'; // Play icon
+                playPauseBtn.textContent = '▶️';
             }
-        });
+        }
+
+        function playPreviousTrack() {
+            // Implement logic to play previous track
+        }
+
+        function playNextTrack() {
+            // Implement logic to play next track
+        }
+
+        function setVolume() {
+            audio.volume = volumeSlider.value / 100;
+        }
 
         // Sample recent recitations data
         const recentRecitations = [
