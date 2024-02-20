@@ -233,7 +233,7 @@ form {
                 alert(`Welcome ${nameInput.value} - ( please confirm ${nameInput.value} & ${psdInput.value}))`);
                 check.checked = false;
                 load();
-                window.location.href = "Profile.html?username=" "dashboard.html?username=" + encodeURIComponent(nameInput.value);
+                window.location.href = "dashboard.html?username=" + encodeURIComponent(nameInput.value);
             }
             nameInput.value = "";
             psdInput.value = "";
