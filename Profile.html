@@ -105,11 +105,14 @@
         let isFollowing = false;
         let followersCount = 0;
 
-        const loggedInUser = {
-            fullName: "John Doe",
-            userName: "john_doe",
-        };
-        
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        const usernameElement = document.getElementById('username');
+        if (usernameElement) {
+            usernameElement.textContent = username;
+        }
+
         document.getElementById("userName").innerHTML = loggedInUser.userName;
         document.getElementById("userFullName").innerHTML = loggedInUser.fullName;
 
@@ -127,15 +130,8 @@
 
             followCountElement.innerHTML = followersCount;
             isFollowing = !isFollowing;
+    
         }
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-
-        const usernameElement = document.getElementById('username');
-        if (usernameElement) {
-            usernameElement.textContent = username;
-        }
-
     </script>
 </body>
 
