@@ -128,6 +128,14 @@
             followCountElement.innerHTML = followersCount;
             isFollowing = !isFollowing;
         }
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        const usernameElement = document.getElementById('username');
+        if (usernameElement) {
+            usernameElement.textContent = username;
+        }
+
     </script>
 </body>
 
