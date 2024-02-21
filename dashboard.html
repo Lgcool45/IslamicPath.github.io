@@ -19,9 +19,9 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #333;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #181818;
+            color: #fff; 
         }
 
         .container {
@@ -29,9 +29,9 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         header {
-            background-color: #333;
+            background-color: #000; 
             color: #fff;
             padding: 20px 0;
             text-align: center;
@@ -40,6 +40,8 @@
         header h1 {
             margin: 0;
             font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -47,6 +49,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            margin-top: 20px;
         }
 
         nav ul li {
@@ -62,6 +65,8 @@
             color: #fff;
             text-decoration: none;
             font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .main-content {
@@ -75,17 +80,19 @@
         }
 
         .widget {
-            background-color: #fff;
+            background-color: #222; 
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .widget h3 {
             margin-top: 0;
             margin-bottom: 15px;
             font-size: 20px;
-            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
         }
 
         .widget ul {
@@ -95,37 +102,11 @@
 
         .widget ul li {
             padding: 5px 0;
+            font-size: 16px;
         }
 
-        .audio-player {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .audio-player audio {
-            flex: 1;
-        }
-
-        .audio-player button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #fff;
-            transition: transform 0.2s;
-        }
-
-        .audio-player button:hover {
-            transform: scale(1.1);
-        }
-
-            background-color: #333;
+        footer {
+            background-color: #000; 
             color: #fff;
             padding: 20px 0;
             text-align: center;
