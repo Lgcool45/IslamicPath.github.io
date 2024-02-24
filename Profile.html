@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,23 +74,18 @@
         }
     </style>
 </head>
-            
-
 <body>
     <header>
         <h1>User Profile</h1>
     </header>
 
-
     <main>
         <section>
-            <h2> id="username" </h2>
+            <h2 id="username"></h2>
             <p>Joined: January 1, 2024</p>
             <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nulla id ligula varius, at pharetra elit condimentum.</p>
-
           
             <button id="followButton" onclick="toggleFollow()">Follow</button>
-
            
             <p id="followCount">Followers: <span id="count">0</span></p>
         </section>
@@ -113,9 +107,6 @@
             usernameElement.textContent = username;
         }
 
-        document.getElementById("userName").innerHTML = loggedInUser.userName;
-        document.getElementById("userFullName").innerHTML = loggedInUser.fullName;
-
         function toggleFollow() {
             const followButton = document.getElementById("followButton");
             const followCountElement = document.getElementById("count");
@@ -130,9 +121,7 @@
 
             followCountElement.innerHTML = followersCount;
             isFollowing = !isFollowing;
-    
         }
     </script>
 </body>
-
 </html>
