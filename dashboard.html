@@ -186,13 +186,9 @@
     <script>
         const audio = document.getElementById('audio-player');
         const playPauseBtn = document.getElementById('play-pause');
-        const prevTrackBtn = document.getElementById('prev-track');
-        const nextTrackBtn = document.getElementById('next-track');
         const volumeSlider = document.getElementById('volume-slider');
 
         playPauseBtn.addEventListener('click', togglePlayPause);
-        prevTrackBtn.addEventListener('click', playPreviousTrack);
-        nextTrackBtn.addEventListener('click', playNextTrack);
         volumeSlider.addEventListener('input', setVolume);
 
         function togglePlayPause() {
@@ -203,12 +199,6 @@
                 audio.pause();
                 playPauseBtn.textContent = '▶️';
             }
-        }
-
-        function playPreviousTrack() {
-        }
-
-        function playNextTrack() {
         }
 
         function setVolume() {
@@ -240,9 +230,8 @@
 
         const usernameElement = document.getElementById('username');
         if (usernameElement) {
-            usernameElement.textContent = username;
+            usernameElement.textContent = `Welcome, ${username}!`;
         }
-
     </script>
 </body>
 </html>
