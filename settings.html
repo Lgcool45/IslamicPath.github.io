@@ -1,154 +1,142 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Pathway Extreme', sans-serif;
-    transition: .3s;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 0;
-    background-color: #000;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings - IslamicPath</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
 
-#msg {
-    color: #1db954;
-    text-align: center;
-    display: block;
-    margin: 10px 0;
-    margin-top: -20px;
-}
+        header {
+            background-color: #040404;
+            padding: 20px;
+            text-align: center;
+        }
 
-.note {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #1db954;
-}
+        h1 {
+            font-size: 24px;
+        }
 
-.main {
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+        main {
+            padding: 20px;
+        }
 
-.main-logo {
-    width: 200px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            margin-bottom: 40px;
+        }
 
-form {
-    width: 350px;
-    background: #000;
-    color: #ffffff;
-    text-align: left;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 55px #000;
-}
+        h2 {
+            font-size: 20px;
+            color: #1DB954;
+            margin-bottom: 20px;
+        }
 
-.logo {
-    width: 100%;
-    text-align: center;
-}
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
-.logo>img {
-    width: 100px;
-}
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-.sign-box {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    text-transform: uppercase;
-    margin: 30px 0;
-    font-size: .95em;
-}
+        button {
+            height: 40px;
+            width: 120px;
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-.sign-box>p {
-    padding: 5px 0;
-    cursor: pointer;
-    transition: .1s;
-}
+        button:hover {
+            background-color: #25a34a;
+        }
 
-.sign-box>p:nth-child(1) {
-    border-bottom: 2.3px solid #1db954;
-}
+        footer {
+            background-color: #040404;
+            padding: 10px;
+            text-align: center;
+        }
 
-.sign-box>p:hover {
-    border-bottom: 2.3px solid #1db954;
-}
+        p.footer-text {
+            font-size: 12px;
+            color: #b3b3b3;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Settings</h1>
+    </header>
 
-.check {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    font-size: .95em;
-    padding: 0px 20px;
-    margin: 5px 0;
-    accent-color: #1db954;
-}
+    <main>
+        <section>
+            <h2>Change Password</h2>
+            <form id="changePasswordForm">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" required>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" required>
+                <label for="confirmPassword">Confirm New Password:</label>
+                <input type="password" id="confirmPassword" required>
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
 
-.inp-Box {
-    color: #fff;
-    background-color: #333;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1.1em;
-    padding: 15px 20px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 0 15px #000;
-    transition: .1s;
-}
+        <section>
+            <h2>Update Email</h2>
+            <form id="updateEmailForm">
+                <label for="currentEmail">Current Email:</label>
+                <input type="email" id="currentEmail" required>
+                <label for="newEmail">New Email:</label>
+                <input type="email" id="newEmail" required>
+                <label for="confirmEmail">Confirm New Email:</label>
+                <input type="email" id="confirmEmail" required>
+                <button type="submit">Update Email</button>
+            </form>
+        </section>
 
-.inp-Box:focus {
-    outline: 2px solid #1db954;
-    background: #333;
-    color: #fff;
-    caret-color: #1db954;
-}
+        <section>
+            <h2>Notification Preferences</h2>
+            <label><input type="checkbox"> Email Notifications</label>
+            <label><input type="checkbox"> SMS Notifications</label>
+            <label><input type="checkbox"> Push Notifications</label>
+            <button type="submit">Save Preferences</button>
+        </section>
 
-.submit {
-    margin-top: 15px;
-    text-transform: uppercase;
-    font-size: 1em;
-    background: #1db954;
-    color: #ffffff;
-    cursor: pointer;
-    transition: .3s;
-}
+        <section>
+            <h2>Delete Account</h2>
+            <p>Warning: Deleting your account will permanently remove all your data.</p>
+            <button onclick="deleteAccount()">Delete Account</button>
+        </section>
+    </main>
 
-.submit:active {
-    background: #000;
-    box-shadow: 0 0 5px #000;
-}
+    <footer>
+        <p class="footer-text">&copy; 2024 IslamicPath. All rights reserved.</p>
+    </footer>
 
-.submit:focus {
-    outline: none;
-    background: #000;
-    color: #fff;
-    caret-color: none;
-}
-
-.forgot-Psd {
-    text-align: center;
-    text-transform: capitalize;
-    color: #444;
-    margin: 15px 0;
-    font-size: .95em;
-    cursor: pointer;
-}
-
-.forgot-Psd:hover {
-    color: #1db954;
-}
+    <script>
+        function deleteAccount() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
