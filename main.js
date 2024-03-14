@@ -9,8 +9,7 @@ const check = document.querySelector('#check');
         let img = ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dquran%2Bopen&psig=AOvVaw1Rfx08mX9mFonuPn8utSdL&ust=1707521569871000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwi05pvW85yEAxXcGnkGHSTQC3UQjRx6BAgAEBU"];
         let index = 0;
         let imglength = img.length;
-
-        // Slider 
+ 
         setInterval(function(){
             var index1 = img[index]; 
             index++;
