@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IslamicPath Dashboard</title>
     <style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IslamicPath Dashboard</title>
-    <style>
         * {
             margin: 0;
             padding: 0;
@@ -134,17 +127,16 @@
         </div>
     </header>
 
-       <div class="main-content">
-            <div class="container">
-                <section class="dashboard-widgets">
-                    <div class="widget">
+    <div class="main-content">
+        <div class="container">
+            <section class="dashboard-widgets">
+                <div class="widget">
                     <h3>User Information</h3>
                     <ul>
-                     <li><p>Welcome,Acool!</p></li>
-                     <li><strong>Joined:</strong> February 18, 2024</li>
+                        <li><p id="username">Welcome, Acool!</p></li>
+                        <li><strong>Joined:</strong> February 18, 2024</li>
                     </ul>
                 </div>
-
 
                 <div class="widget">
                     <h3>Favorite Reciters</h3>
@@ -170,8 +162,8 @@
                 </div>
 
                 <div class="widget">
-                    <h3>Another Widget</h3>
-                    <p>This is another widget content.</p>
+                    <h3>Checkout Our New AI</h3>
+                    <button onclick="redirectToAI()">Explore AI</button>
                 </div>
             </section>
         </div>
@@ -205,32 +197,8 @@
             audio.volume = volumeSlider.value / 100;
         }
 
-        const recentRecitations = [
-            { title: 'Surah Al-Fatiha', reciter: 'Reciter X' },
-            { title: 'Surah Al-Baqarah', reciter: 'Reciter Y' },
-            { title: 'Surah Al-Imran', reciter: 'Reciter Z' }
-        ];
-
-        function displayRecentRecitations() {
-            const recentRecitationsList = document.getElementById('recent-recitations');
-
-            recentRecitationsList.innerHTML = '';
-
-            recentRecitations.forEach(recitation => {
-                const li = document.createElement('li');
-                li.textContent = `${recitation.title} - ${recitation.reciter}`;
-                recentRecitationsList.appendChild(li);
-            });
-        }
-        
-        displayRecentRecitations();
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-
-        const usernameElement = document.getElementById('username');
-        if (usernameElement) {
-            usernameElement.textContent = `Welcome, ${username}!`;
+        function redirectToAI() {
+            window.location.href = "ai.html";
         }
     </script>
 </body>
