@@ -1,145 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+import React, { useState, useEffect } from "react";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Reciters - IslamicPath</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+const Reciters = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredReciters, setFilteredReciters] = useState(dummy);
 
-        header {
-            background-color: #040404;
-            padding: 20px;
-            text-align: center;
-        }
+  useEffect(() => {
+    const results = dummy.filter((reciter) =>
+      reciter.reciterName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredReciters(results);
+  }, [searchTerm]);
 
-        header h1 {
-            font-size: 24px;
-        }
+  return (
+    <section className="mt-12 py-12 px-8 container bg-background rounded">
+      <h2 className="text-xl md:text-3xl font-bold text-green-400 mb-4">
+        Find Reciters
+      </h2>
+      <div className="mb-6 flex flex-row items-center gap-2">
+        <Input
+          type="text"
+          placeholder="Search for reciters..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <Button size='icon' onClick={() => setSearchTerm("")}>
+          <X className="w-6 h-6" />
+        </Button>
+      </div>
+      <div className="space-y-8">
+        {filteredReciters.length ? (
+          filteredReciters.map((item) => (
+            <Card key={item.reciterName} className="bg-foreground/10">
+              <CardHeader>
+                <CardTitle>{item.reciterName}</CardTitle>
+              </CardHeader>
+            </Card>
+          ))
+        ) : (
+          <h2>No Reciters Found</h2>
+        )}
+      </div>
+    </section>
+  );
+};
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
+export default Reciters;
 
-        nav li {
-            margin: 0 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #b3b3b3;
-            font-size: 16px;
-            transition: color 0.3s ease-in-out;
-        }
-
-        nav a:hover {
-            color: #1DB954;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        .search-reciters {
-            background-color: #040404;
-            padding: 40px 0;
-        }
-
-        .search-reciters h2 {
-            font-size: 36px;
-            color: #1DB954;
-            margin-bottom: 30px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        #search-bar {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #282828;
-            background-color: #121212;
-            color: #fff;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        #reciters-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #reciters-list li {
-            font-size: 16px;
-            color: #b3b3b3;
-            background-color: #282828;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #040404;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 14px;
-            color: #b3b3b3;
-            margin: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <h1>IslamicPath</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="search-reciters">
-            <div class="container">
-                <h2>Find Reciters</h2>
-                <input type="text" id="search-bar" placeholder="Search for reciters...">
-                <ul id="reciters-list">
-                    <li>Reciter 1</li>
-                    <li>Reciter 2</li>
-                    <!-- Add more reciters -->
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 IslamicPath. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+const dummy = [
+  {
+    reciterName: "Reciter 1",
+  },
+  {
+    reciterName: "Reciter 2",
+  },
+  {
+    reciterName: "Reciter 3",
+  },
+  {
+    reciterName: "Reciter 4",
+  },
+];
