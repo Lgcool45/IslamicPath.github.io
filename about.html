@@ -1,123 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+const About = () => {
+  return (
+    <section className="mt-12 py-12 px-8 container bg-background rounded">
+      <h2 className="text-xl md:text-3xl font-bold text-green-400 mb-4">
+        About Us
+      </h2>
+      <div className="p-4">
+         
+            <p className="text-xl">
+              Welcome to IslamicPath, your source for immersive Quranic
+              recitations. Our mission is to provide a platform where you can
+              explore and experience the beauty of the Quran through the voices
+              of talented reciters.
+              <br />
+              <br />
+              At IslamicPath, we believe in the power of Quranic recitations to
+              inspire and uplift. Whether you're seeking moments of reflection,
+              relaxation, or spiritual connection, our curated playlists offer a
+              diverse range of recitations to suit your preferences.
+              <br />
+              <br />
+              Join us on this journey as we strive to create a space for the
+              global community to engage with the Quran in a meaningful and
+              accessible way.
+            </p>
+       
+      </div>
+    </section>
+  );
+};
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - IslamicPath</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #040404;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav li {
-            margin: 0 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #b3b3b3;
-            font-size: 16px;
-            transition: color 0.3s ease-in-out;
-        }
-
-        nav a:hover {
-            color: #1DB954;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        .about-us {
-            background-color: #040404;
-            padding: 40px 0;
-        }
-
-        .about-us h2 {
-            font-size: 36px;
-            color: #1DB954;
-            margin-bottom: 30px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .about-us p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #b3b3b3;
-            margin-bottom: 20px;
-        }
-
-        footer {
-            background-color: #040404;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 14px;
-            color: #b3b3b3;
-            margin: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <h1>IslamicPath</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Reciters.html">Reciters</a></li>    
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="about-us">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>Welcome to IslamicPath, your source for immersive Quranic recitations. Our mission is to provide a platform where you can explore and experience the beauty of the Quran through the voices of talented reciters.</p>
-                <p>At IslamicPath, we believe in the power of Quranic recitations to inspire and uplift. Whether you're seeking moments of reflection, relaxation, or spiritual connection, our curated playlists offer a diverse range of recitations to suit your preferences.</p>
-                <p>Join us on this journey as we strive to create a space for the global community to engage with the Quran in a meaningful and accessible way.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 IslamicPath. All rights reserved.</p>
-        </div>
+export default About;
     </footer>
 </body>
 
